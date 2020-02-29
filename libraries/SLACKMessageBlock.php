@@ -27,7 +27,7 @@ class SLACKMessageBlock
    * @param  bool              $view [description]
    * @return SLACKMessageBlock       [description]
    */
-  public function markDownText(string $text, bool $view):SLACKMessageBlock
+  public function markDownText(string $text, bool $view=false):SLACKMessageBlock
   {
     $this->text['type'] = 'mrkdwn';
     $this->text['text'] = $view ? get_instance()->load->view($text, true) : $text;
