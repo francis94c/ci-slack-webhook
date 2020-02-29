@@ -4,6 +4,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class SLACKWebHook
 {
   /**
+   * [PACKAGE description]
+   * @var string
+   */
+  const PACKAGE = 'francis94c/ci-slack-webhook';
+
+  /**
    * [private description]
    * @var [type]
    */
@@ -19,6 +25,8 @@ class SLACKWebHook
     if ($params) {
       $this->url = $params['url'] ?? null;
     }
+
+    splint_autoload_register(self::PACKAGE);
   }
 
   /**
@@ -30,6 +38,7 @@ class SLACKWebHook
   {
     $ch = curl_init($this->url);
     $body = json_encode($message->toArray());
+    //dd($body);
     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch, CURLOPT_HTTPHEADER, [
