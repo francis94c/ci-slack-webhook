@@ -1,0 +1,22 @@
+{
+  "name": "francis94c/ci-slack-webhook",
+  "type": "library",
+  "description": "Code Igniter API for Sending SLACK messages using the Incoming WebHooks Integration.",
+  "tags": [],
+  "page": "https://github.com/francis94c/ci-slack-webhook",
+  "authors": [
+    {
+      "name": "Francis Ilechukwu",
+      "email": "francis94c@gmail.com",
+      "page": "about.me/francisilechukwu",
+      "role": "Developer"
+    }
+  ],
+  "php": ">=7.3",
+  "autoload": {
+    "libraries" : [
+      ["SLACKWebHook", "@slack", "slack"]
+    ],
+    "helpers": ["slack"]
+  }
+}
