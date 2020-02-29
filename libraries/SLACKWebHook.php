@@ -23,7 +23,7 @@ class SLACKWebHook
   function __construct(?array $params=null)
   {
     if ($params) {
-      $this->url = $params['url'] ?? null;
+      $this->url = $params['url'] ?? getenv('SLACK_WEBHOOK_URL');
     }
 
     splint_autoload_register(self::PACKAGE);
@@ -38,7 +38,6 @@ class SLACKWebHook
   {
     $ch = curl_init($this->url);
     $body = json_encode($message->toArray());
-    //dd($body);
     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch, CURLOPT_HTTPHEADER, [
